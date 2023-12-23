@@ -1,0 +1,22 @@
+#OFFICAL PYTHON RUNTIME AS PARENT IMAGE
+FROM python:3.8
+
+#SET UTHE WORKING DIRECTORY
+WORKDIR /app
+
+#copy the current directory contents into the container at /app
+COPY . /app
+
+#INSTALL ANY NEEDED PACKAGES SPECIFIED IN REQ .TXT
+ RUN pip install --no-cache-dir -r requirements.txt
+ 
+ #make port 5000 available 
+ EXPOSE 5000
+
+ #DEFINE ENVIRONMENT 
+ ENV NAME world
+
+ #run app.py when the container launch
+ CMD ['python','app.py']
+
+
